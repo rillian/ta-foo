@@ -1,16 +1,13 @@
 extern crate test_assembler;
 use test_assembler::{Section, Label, LabelMaker};
 
-fn make() -> Section {
+fn main() {
     let size = Label::new();
-    Section::new()
+    let section = Section::new()
         .B32(&size)
         .append_bytes(b"test")
-        .append_repeated(0xab, 8)
-        .mark(&size)
-}
-
-fn main() {
-    let section = make();
-    println!("{:?}", section.get_contents().unwrap());
+        .mark(&size);
+    let result = section.get_contents();
+    assert!(result.is_some());
+    println!("{:?}", result.unwrap());
 }
