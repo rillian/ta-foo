@@ -1,0 +1,7 @@
+[package]
+name = "ta-foo"
+version = "0.1.0"
+authors = ["Ralph Giles <giles@mozilla.com>"]
+
+[dependencies]
+test-assembler = "0.1.0"
